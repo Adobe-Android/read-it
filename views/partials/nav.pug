@@ -1,0 +1,28 @@
+if session.passport
+  span #{session.passport.user.username}
+  form(method="POST")
+    button(type="submit" formaction="/logout") logout
+
+    ul
+      |
+      |
+      //- select(class="selectType" name="selectType" onchange="location = this.value;") 
+      //-   option Select a product category!
+      //-   option(value='/productTypes') Product Categories
+      //-   if locals.prodTypes
+      //-     each prodType in locals.prodTypes
+      //-       -let url = `/getProductsByTypes/` + prodType.name;
+            //- option(value=url) #{prodType.name}
+      |
+      |
+      a(href="/search-books") Search All Books
+      |
+      |
+      a(href='/your-books') Your Books
+      |
+      |
+      a(href='/read-it-list') Read it List
+      |
+      |
+
+

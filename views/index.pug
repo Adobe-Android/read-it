@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Read it!
+  body
+    include partials/nav.pug
+    h1 Read it!
+    //- h2 #{globalWow}
+
+  block content
+    button#showLogin login
+    button#showRegister register
+
+    script
+      include ../node_modules/jquery/dist/jquery.js
+      include ../client/client.js
+      include ../public/main.js

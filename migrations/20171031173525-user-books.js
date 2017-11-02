@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         references: {
           // Sequelize is referencing the table here, which it capitalizes by default, so use the plural of User
-          model: 'User',
+          model: 'Users',
           key: 'id'
         },
         onUpdate: 'cascade',
@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Book',
+          model: 'Books',
           key: 'id'
         },
         onUpdate: 'cascade',
