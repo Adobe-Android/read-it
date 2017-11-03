@@ -1,0 +1,10 @@
+include ./partials/nav
+block content
+  if session.passport
+    h2 Search All Books
+    input#search(placeholder="Search any book you like" type="text", name="search")
+    button#search-button(type="button") Search
+      
+  script
+    include ../node_modules/jquery/dist/jquery.js
+    include ../public/main.js

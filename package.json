@@ -17,12 +17,14 @@
     "express": "^4.16.1",
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
+    "jquery": "^3.2.1",
     "method-override": "^2.3.10",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0",
     "sequelize": "^4.13.5"
   }
 }

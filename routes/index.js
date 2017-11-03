@@ -12,6 +12,7 @@ router.get('/', (req, res, next) => {
 
 // pipe all other requests through the route modules
 router.use(require('./authRoute'));
+router.use(require('./bookRoute'))
 
 
 // router.use(require('./foo'));
@@ -23,11 +24,5 @@ function isLoggedIn(req, res, next) {
 router.use(isLoggedIn);
 //private routes
 router.get('/welcome', welcome);
-router.use(require('./productTypeRoute'));
-router.use(require('./paymentType'));
-router.use(require('./productRoute'));
-router.use(require('./productDetailsRoute'));
-router.use(require('./profileRoute'));
-router.use(require('./orderHistory'))
 
 module.exports = router;

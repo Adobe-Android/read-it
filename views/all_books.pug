@@ -1,0 +1,12 @@
+include ./partials/nav
+block content
+  if session.passport
+    each book in books
+      p Title: #{book.volumeInfo.title}
+      p Author: #{book.volumeInfo.authors}
+      br
+
+
+  script
+    include ../node_modules/jquery/dist/jquery.js
+    include ../public/main.js
