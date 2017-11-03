@@ -25,5 +25,27 @@ module.exports.getAllBooks = (req, res, next) => {
   }
 
 module.exports.postOneBook = (req, res, next) => {
-  console.log("in test func!");
-}
+  console.log("reaching postOneBook func!");
+  
+};
+
+/* module.exports.postProduct = (req, res, next) => {
+  const { Product } = req.app.get('models');
+  let newPrice = Number(req.body.price);
+  Product.create({
+    date_added: new Date(),
+    name: req.body.name,
+    description: req.body.description,
+    price: newPrice,
+    quantity: req.body.quantity,
+    type_id: req.body.selectval,
+    user_id: req.session.passport.user.id
+  })
+  .then( () => {
+    res.redirect('welcome');
+  })
+  .catch( (err) => {
+    console.log(err);    
+  });
+};
+*/
