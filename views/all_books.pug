@@ -1,12 +1,53 @@
 include ./partials/nav
 block content
   if session.passport
+    h1 All Books
+    //- -console.log(books[0]);
     each book in books
-      p Title: #{book.volumeInfo.title}
-      p Author: #{book.volumeInfo.authors}
+      //- error handling for when a component isn't available
+      form(action="/add-book", method="POST")        
+        p Title: #{book.volumeInfo.title}
+        if book.volumeInfo.authors
+          p Author: #{book.volumeInfo.authors}
+        else
+          p Author: No author found
+      
+        if book.volumeInfo.publisher
+          p Publisher: #{book.volumeInfo.publisher}
+        else
+          p Publisher: No publisher found
+
+        if book.volumeInfo.publishedDate
+          p Published Date: #{book.volumeInfo.publishedDate}
+        else
+          p Published Date: No published date found
+        
+        if book.volumeInfo.categories
+          p Genre: #{book.volumeInfo.categories}
+        else
+          p Genre: No genre found
+        
+        if book.volumeInfo.maturityRating
+          if book.volumeInfo.maturityRating === "NOT_MATURE"
+            p Maturity Rating: Suitable for all ages
+          else
+            p Maturity Rating: Adult readers only
+        else
+          p Maturity rating: No maturity rating found
+        
+        if book.volumeInfo.description
+          p Summary: #{book.volumeInfo.description}
+        else
+          p Summary: No summary found
+        
+        if book.volumeInfo.pageCount
+          p Length: #{book.volumeInfo.pageCount} pages
+        else
+          p Length: Page count not found
+        
+      button#button(type='submit') Add to Read it List
       br
-
-
+      br
   script
     include ../node_modules/jquery/dist/jquery.js
     include ../public/main.js

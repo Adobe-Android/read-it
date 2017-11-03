@@ -2,7 +2,6 @@
 
 let request = require('request');
 
-
 module.exports.getAllBooks = (req, res, next) => {
   console.log("getting to getAllBooks function")
   
@@ -25,6 +24,6 @@ module.exports.getAllBooks = (req, res, next) => {
     }
   }
 
-module.exports.testFunc = (req, res, next) => {
+module.exports.postOneBook = (req, res, next) => {
   console.log("in test func!");
 }

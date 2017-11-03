@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { welcome } = require('../controllers/authCtrl');
+const { getAllBooks } = require('../controllers/bookCtrl');
 
 router.get('/', (req, res, next) => {
   res.render('index');
@@ -23,6 +23,6 @@ function isLoggedIn(req, res, next) {
 }
 router.use(isLoggedIn);
 //private routes
-router.get('/welcome', welcome);
+router.get('/search-books', getAllBooks);
 
 module.exports = router;

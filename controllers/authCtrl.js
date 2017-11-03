@@ -50,7 +50,7 @@ module.exports.login = (req, res, next) => {
       if (err) { return next(err) }
       console.log("authenticated. Rerouting to welcome!", user);
       req.flash('welcomeBackMsg', `Welcome back, `);
-      res.redirect('/welcome');
+      res.redirect('/search-books');
     });
   })(req, res, next);
 };
