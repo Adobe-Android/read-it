@@ -6,7 +6,6 @@ block content
     each book in books
       //- error handling for when a component isn't available
       p Title: #{book.volumeInfo.title}
-      p Book id: #{book.id}
       if book.volumeInfo.authors
         p Author: #{book.volumeInfo.authors}
       else

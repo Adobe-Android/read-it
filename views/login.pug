@@ -2,7 +2,11 @@ extends index.pug
 
 block content
   if message
-    h2= message
+    h2= message 
+    h2 ...or register below
+    a(href='/register') register here
+    br
+    br
 
   form(action="/login", method="post")
     input(type="text" placeholder="username" name="username")
