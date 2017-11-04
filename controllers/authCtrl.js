@@ -22,7 +22,7 @@ module.exports.register = (req, res, next) => {
         // Save a msg in a cookie whose value will be added to req
         // using https://www.npmjs.com/package/express-flash-2 docs, but installed express-flash
         req.flash('registerMsg', `Thanks for signing up, ${user.first_name}!`);
-        res.redirect('/welcome');
+        res.redirect('/search-books');
       });
     })(req, res, next);
   } else {
@@ -50,7 +50,7 @@ module.exports.login = (req, res, next) => {
       if (err) { return next(err) }
       console.log("authenticated. Rerouting to welcome!", user);
       req.flash('welcomeBackMsg', `Welcome back, `);
-      res.redirect('/welcome');
+      res.redirect('/search-books');
     });
   })(req, res, next);
 };

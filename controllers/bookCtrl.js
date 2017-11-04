@@ -2,7 +2,6 @@
 
 let request = require('request');
 
-
 module.exports.getAllBooks = (req, res, next) => {
   console.log("getting to getAllBooks function")
   
@@ -25,6 +24,11 @@ module.exports.getAllBooks = (req, res, next) => {
     }
   }
 
-module.exports.testFunc = (req, res, next) => {
-  console.log("in test func!");
-}
+module.exports.postOneBook = (req, res, next) => {
+  console.log("reaching postOneBook func!");
+  const { Book, User } = req.app.get('models');
+  // console.log(req.params.id)
+  Book.create({
+    api_id: req.params.id
+  })
+};

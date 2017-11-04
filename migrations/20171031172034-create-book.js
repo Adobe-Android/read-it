@@ -8,25 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      categories: {
-        type: Sequelize.STRING
-      },
-      title: {
-        type: Sequelize.STRING
-      },
-      authors: {
-        type: Sequelize.STRING
-      },
-      publisher: {
-        type: Sequelize.STRING
-      },
-      published_date: {
-        type: Sequelize.STRING
-      },
-      maturity_rating: {
-        type: Sequelize.STRING
-      },
-      description: {
+      api_id: {
         type: Sequelize.STRING
       }
     });
