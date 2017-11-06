@@ -2,9 +2,10 @@ include ./partials/nav
 block content
   if session.passport
     h1 Your Read it List
-    each book in bookData
+    -console.log("PUG READ IT!!", bookArr);
+    each book in bookArr
       //- -console.log("pug log", book);
-      p API id: #{book.dataValues.api_id}
+      p API id: #{book.volumeInfo.title}
       //- if book.volumeInfo.authors
       //-   p Author: #{book.volumeInfo.authors}
       //- else

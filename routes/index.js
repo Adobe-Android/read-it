@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getAllBooks } = require('../controllers/bookCtrl');
+const { getAllBooks, getUserBooks, postOneBook } = require('../controllers/bookCtrl');
 
 router.get('/', (req, res, next) => {
   res.render('index');

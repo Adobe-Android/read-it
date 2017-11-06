@@ -59,7 +59,7 @@ module.exports.postOneBook = (req, res, next) => {
 
 module.exports.getUserBooks = (req, res, next) => {
   const { Book, User } = req.app.get('models');
-  console.log("req params", req.session.passport.user.id)
+  // console.log("req params", req.session.passport.user.id)
   User.findOne({ where: {id: req.session.passport.user.id}})
   .then((user) => {
     // console.log("user", user)
@@ -70,23 +70,26 @@ module.exports.getUserBooks = (req, res, next) => {
       let apiData = [];
       let parsed;
       let book;
-
-      return new Promise((resolve, reject) => {
-       // for (let i = 0; i < bookData.length; i++) {
-         // apiData.push(bookData[i].dataValues.api_id);
-        request(`https://www.googleapis.com/books/v1/volumes/${bookData[0].dataValues.api_id}`, function (error, response, body) {
+      for (let i = 0; i < bookData.length; i++) {
+        request(`https://www.googleapis.com/books/v1/volumes/${bookData[i].dataValues.api_id}`, function (error, response, body) {
           // console.log(body);
           parsed = JSON.parse(body);
           book = parsed.volumeInfo;
+          // console.log("book body!!", book);
           bookArr.push(parsed);
-        })
+          // console.log("book array", bookArr);
+          
+          if (i === bookData.length -1 ) {
+            console.log("getting to if statement");
+            res.locals.bookArr = bookArr;
+            res.render('read_it')
+          }
       })
-        .then((data) => {
-          console.log("book array", bookArr);
-        })
-        .catch(() => {
-          console.log('has been caught');
-        })
+    }
+
+    // console.log("apiData array", apiData);
+
+      // `https://www.googleapis.com/books/v1/volumes/volumeId&
     })
     .catch((err) => {
       next(err);
