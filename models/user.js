@@ -9,7 +9,12 @@ module.exports = function (sequelize, DataTypes) {
   }, { underscored: true, timestamps: false });
 
   User.associate = (models) => {
-    User.hasMany(models.Book); 
+    User.belongsToMany(models.Book, {
+      foreignKey: 'user_id',
+      through: 'User_Books',
+      timestamps: false,
+      onDelete: 'CASCADE'
+    }); 
   };
 
   return User;

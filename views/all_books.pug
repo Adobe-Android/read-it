@@ -1,7 +1,7 @@
 include ./partials/nav
 block content
   if session.passport
-    h1 All Books
+    h1 Books from your search
     //- -console.log(books[0]);
     each book in books
       //- error handling for when a component isn't available

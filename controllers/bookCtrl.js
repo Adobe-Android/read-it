@@ -27,8 +27,68 @@ module.exports.getAllBooks = (req, res, next) => {
 module.exports.postOneBook = (req, res, next) => {
   console.log("reaching postOneBook func!");
   const { Book, User } = req.app.get('models');
-  // console.log(req.params.id)
   Book.create({
     api_id: req.params.id
   })
+  .then((newBook) => {
+    return newBook.addUser(req.session.passport.user.id)
+  })
+  .catch((err) => {
+    next(err);
+  });
+};
+
+// module.exports.getOrders = (req, res, next) => {
+//   let ordersList;
+//   const { Order, Product } = req.app.get('models');
+//   Order.findOne({ where: { user_id: req.session.passport.user.id, open_closed: true } })
+//     .then((ordersData) => {
+//       // console.log("please work???????", ordersData)
+//       ordersList = ordersData;
+//       return ordersData.getProducts()
+//     })
+//     .then((productData) => {
+//       const { dataValues: currentOrder } = ordersList;
+//       // console.log("have mercy!!!!", orders)
+//       res.render('orders', { currentOrder, productData });
+//     })
+//     .catch((err) => {
+//       next(err);
+//     });
+// };
+
+module.exports.getUserBooks = (req, res, next) => {
+  const { Book, User } = req.app.get('models');
+  console.log("req params", req.session.passport.user.id)
+  User.findOne({ where: {id: req.session.passport.user.id}})
+  .then((user) => {
+    // console.log("user", user)
+    return user.getBooks();
+  })
+  .then((bookData) => {
+      let bookArr = [];
+      let apiData = [];
+      let parsed;
+      let book;
+
+      return new Promise((resolve, reject) => {
+       // for (let i = 0; i < bookData.length; i++) {
+         // apiData.push(bookData[i].dataValues.api_id);
+        request(`https://www.googleapis.com/books/v1/volumes/${bookData[0].dataValues.api_id}`, function (error, response, body) {
+          // console.log(body);
+          parsed = JSON.parse(body);
+          book = parsed.volumeInfo;
+          bookArr.push(parsed);
+        })
+      })
+        .then((data) => {
+          console.log("book array", bookArr);
+        })
+        .catch(() => {
+          console.log('has been caught');
+        })
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
