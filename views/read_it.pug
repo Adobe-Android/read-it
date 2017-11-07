@@ -1,15 +1,15 @@
 include ./partials/nav
 block content
   if session.passport
-    h1 Books from your search
-    //- -console.log(books[0]);
-    each book in books
+    h1 Your Read it List
+    //- -console.log(bookArr)
+    each book in bookArr
       //- error handling for when a component isn't available
       p Title: #{book.volumeInfo.title}
       if book.volumeInfo.subtitle
         p Subtitle: #{book.volumeInfo.subtitle}
       else
-
+        
       if book.volumeInfo.authors
         p Author: #{book.volumeInfo.authors}
       else

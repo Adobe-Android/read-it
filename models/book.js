@@ -5,8 +5,10 @@ module.exports = (sequelize, DataTypes) => {
   }, { underscored: true, timestamps: false });
 
   Book.associate = (models) => {
-    Book.belongsTo(models.User, {
-      foreignKey: 'id',
+    Book.belongsToMany(models.User, {
+      foreignKey: 'book_id',
+      through: 'User_Books',
+      timestamps: false,
       onDelete: 'CASCADE'
     });
   };
