@@ -62,7 +62,7 @@ module.exports.getUserBooks = (req, res, next) => {
           book = parsed;
           // console.log("book body!!", book);
           bookArr.push(book);
-          console.log("book array", bookArr);
+          // console.log("book array", bookArr);
           
           if (i === bookData.length -1 ) {
             console.log("getting to if statement");
