@@ -101,17 +101,20 @@ module.exports.getUserBooks = (req, res, next) => {
 };
 
 module.exports.putReview = (req, res, next) => {
-  const { User_Books } = req.app.get('models');
+  const { User_Books, Book } = req.app.get('models');
   console.log("reaching putReview func!");
   console.log(req.params.id)
-  // Probably need model now for User_Books
-  User_Books.update({
-    up_vote: true
-  }, { where: { book_id: req.params.id, user_id: req.session.passport.user.id} })
-  //   .then((newBook) => {
-  //     return newBook.addUser(req.session.passport.user.id)
-  //   })
-    .catch((err) => {
-      next(err);
-    });
+  Book.findOne({ where: { api_id: req.params.id } })
+    .then((book) => {
+      console.log("putReview book", book.dataValues.id);
+    // Probably need model now for User_Books
+    User_Books.update({
+      up_vote: true
+    }, { where: { book_id: book.dataValues.id, user_id: req.session.passport.user.id} })
+    //   .then((newBook) => {
+    //     return newBook.addUser(req.session.passport.user.id)
+      })
+      .catch((err) => {
+        next(err);
+      });
 };
