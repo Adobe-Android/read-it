@@ -39,25 +39,6 @@ module.exports.postOneBook = (req, res, next) => {
   });
 };
 
-// module.exports.getOrders = (req, res, next) => {
-//   let ordersList;
-//   const { Order, Product } = req.app.get('models');
-//   Order.findOne({ where: { user_id: req.session.passport.user.id, open_closed: true } })
-//     .then((ordersData) => {
-//       // console.log("please work???????", ordersData)
-//       ordersList = ordersData;
-//       return ordersData.getProducts()
-//     })
-//     .then((productData) => {
-//       const { dataValues: currentOrder } = ordersList;
-//       // console.log("have mercy!!!!", orders)
-//       res.render('orders', { currentOrder, productData });
-//     })
-//     .catch((err) => {
-//       next(err);
-//     });
-// };
-
 module.exports.getUserBooks = (req, res, next) => {
   const { Book, User } = req.app.get('models');
   // console.log("req params", req.session.passport.user.id)
@@ -88,28 +69,43 @@ module.exports.getUserBooks = (req, res, next) => {
             res.locals.bookArr = bookArr;
             res.render('read_it')
           }
-      })
-    }
-
-    // console.log("apiData array", apiData);
-
-      // `https://www.googleapis.com/books/v1/volumes/volumeId&
+        })
+      }
     })
     .catch((err) => {
       next(err);
     });
 };
 
-module.exports.putReview = (req, res, next) => {
+module.exports.putUpvoteTrue = (req, res, next) => {
   const { User_Books, Book } = req.app.get('models');
   console.log("reaching putReview func!");
-  console.log(req.params.id)
+  // console.log(req.params.id)
   Book.findOne({ where: { api_id: req.params.id } })
     .then((book) => {
-      console.log("putReview book", book.dataValues.id);
+      // console.log("putReview book", book.dataValues.id);
     // Probably need model now for User_Books
     User_Books.update({
       up_vote: true
+    }, { where: { book_id: book.dataValues.id, user_id: req.session.passport.user.id} })
+    //   .then((newBook) => {
+    //     return newBook.addUser(req.session.passport.user.id)
+      })
+      .catch((err) => {
+        next(err);
+      });
+};
+
+module.exports.putUpvoteFalse = (req, res, next) => {
+  const { User_Books, Book } = req.app.get('models');
+  console.log("reaching putReview func!");
+  // console.log(req.params.id)
+  Book.findOne({ where: { api_id: req.params.id } })
+    .then((book) => {
+      // console.log("putReview book", book.dataValues.id);
+    // Probably need model now for User_Books
+    User_Books.update({
+      up_vote: false
     }, { where: { book_id: book.dataValues.id, user_id: req.session.passport.user.id} })
     //   .then((newBook) => {
     //     return newBook.addUser(req.session.passport.user.id)

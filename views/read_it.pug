@@ -11,7 +11,7 @@ html
       each book in bookArr
         i(id=`${book.id}` class="up_vote fa fa-arrow-up" aria-hidden="true")
         br
-        i(id="down_vote" class="fa fa-arrow-down" aria-hidden="true")
+        i(id=`${book.id}` class="down_vote fa fa-arrow-down" aria-hidden="true")
         //- error handling for when a component isn't available
         p Title: #{book.volumeInfo.title}
         if book.volumeInfo.subtitle

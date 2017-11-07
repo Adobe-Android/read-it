@@ -21,7 +21,16 @@ $('.up_vote').click(function(){
   console.log(api_id);
   $.ajax({
     type: "PUT",
-    url: `/add-review/${api_id}`,
+    url: `/add-upvote-true/${api_id}`,
+  })
+});
+$('.down_vote').click(function(){
+  console.log("Got clicked")
+  let api_id = $(this).attr('id');
+  console.log(api_id);
+  $.ajax({
+    type: "PUT",
+    url: `/add-upvote-false/${api_id}`,
   })
 });
 
