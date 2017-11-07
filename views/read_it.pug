@@ -1,49 +1,57 @@
 include ./partials/nav
-block content
-  if session.passport
-    h1 Your Read it List
-    //- -console.log(bookArr)
-    each book in bookArr
-      //- error handling for when a component isn't available
-      p Title: #{book.volumeInfo.title}
-      if book.volumeInfo.subtitle
-        p Subtitle: #{book.volumeInfo.subtitle}
-      else
-        
-      if book.volumeInfo.authors
-        p Author: #{book.volumeInfo.authors}
-      else
-
-      if book.volumeInfo.publisher
-        p Publisher: #{book.volumeInfo.publisher}
-      else
-
-      if book.volumeInfo.publishedDate
-        p Published Date: #{book.volumeInfo.publishedDate}
-      else
-
-      if book.volumeInfo.categories
-        p Genre: #{book.volumeInfo.categories}
-      else
-
-      if book.volumeInfo.maturityRating
-        if book.volumeInfo.maturityRating === "NOT_MATURE"
-          p Maturity Rating: Suitable for all ages
+doctype html
+html
+  head
+    title Read it!
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+  body
+    if session.passport
+      h1 Your Read it List
+      //- -console.log(bookArr)
+      each book in bookArr
+        i(id=`${book.id}` class="up_vote fa fa-arrow-up" aria-hidden="true")
+        br
+        i(id="down_vote" class="fa fa-arrow-down" aria-hidden="true")
+        //- error handling for when a component isn't available
+        p Title: #{book.volumeInfo.title}
+        if book.volumeInfo.subtitle
+          p Subtitle: #{book.volumeInfo.subtitle}
+        else
+          
+        if book.volumeInfo.authors
+          p Author: #{book.volumeInfo.authors}
         else
 
-      else
+        if book.volumeInfo.publisher
+          p Publisher: #{book.volumeInfo.publisher}
+        else
 
-      if book.volumeInfo.description
-        p Summary: #{book.volumeInfo.description}
-      else
+        if book.volumeInfo.publishedDate
+          p Published Date: #{book.volumeInfo.publishedDate}
+        else
 
-      if book.volumeInfo.pageCount
-        p Length: #{book.volumeInfo.pageCount} pages
-      else
+        if book.volumeInfo.categories
+          p Genre: #{book.volumeInfo.categories}
+        else
 
-      button(id=`${book.id}` class='add-button' type='submit') Add to Read it List
-      br
-      br
-  script
-    include ../node_modules/jquery/dist/jquery.js
-    include ../public/main.js
+        if book.volumeInfo.maturityRating
+          if book.volumeInfo.maturityRating === "NOT_MATURE"
+            p Maturity Rating: Suitable for all ages
+          else
+
+        else
+
+        if book.volumeInfo.description
+          p Summary: #{book.volumeInfo.description}
+        else
+
+        if book.volumeInfo.pageCount
+          p Length: #{book.volumeInfo.pageCount} pages
+        else
+
+        button(class='add-button' type='submit') Remove from Read it List
+        br
+        br
+    script
+      include ../node_modules/jquery/dist/jquery.js
+      include ../public/main.js

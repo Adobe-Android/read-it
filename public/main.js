@@ -15,3 +15,13 @@ $('.add-button').click(function(){
   })
 });
 
+$('.up_vote').click(function(){
+  console.log("Got clicked")
+  let api_id = $(this).attr('id');
+  console.log(api_id);
+  $.ajax({
+    type: "PUT",
+    url: `/add-review/${api_id}`,
+  })
+});
+

@@ -16,7 +16,7 @@ module.exports.getAllBooks = (req, res, next) => {
     if (req.query.title) {
       request(`https://www.googleapis.com/books/v1/volumes?q=${req.query.title}&maxResults=5`, function (error, response, body) {
       let parsed = JSON.parse(body);
-      console.log(parsed)
+      // console.log(parsed)
       let books = parsed.items;
       res.render('all_books', {books});
     });
@@ -74,18 +74,14 @@ module.exports.getUserBooks = (req, res, next) => {
       for (let i = 0; i < bookData.length; i++) {
         request(`https://www.googleapis.com/books/v1/volumes/${bookData[i].dataValues.api_id}`, function (error, response, body) {
           parsed = JSON.parse(body);
-            // u003cp: " ",
-            // u003c: " ",
-            // u003e: " ",
-            // u003ci: " "
           let rep = /<p>|<b>|<\/b>|<\/p>|<i>|<\/i>|<br>|\/|/gi
           let str = "";
           parsed.volumeInfo.description = parsed.volumeInfo.description.replace(rep, str);
-          console.log(parsed);
+          // console.log(parsed);
           book = parsed;
           // console.log("book body!!", book);
           bookArr.push(book);
-          // console.log("book array", bookArr);
+          console.log("book array", bookArr);
           
           if (i === bookData.length -1 ) {
             console.log("getting to if statement");
@@ -99,6 +95,22 @@ module.exports.getUserBooks = (req, res, next) => {
 
       // `https://www.googleapis.com/books/v1/volumes/volumeId&
     })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+module.exports.putReview = (req, res, next) => {
+  const { User_Books } = req.app.get('models');
+  console.log("reaching putReview func!");
+  console.log(req.params.id)
+  // Probably need model now for User_Books
+  User_Books.update({
+    up_vote: true
+  }, { where: { book_id: req.params.id, user_id: req.session.passport.user.id} })
+  //   .then((newBook) => {
+  //     return newBook.addUser(req.session.passport.user.id)
+  //   })
     .catch((err) => {
       next(err);
     });
