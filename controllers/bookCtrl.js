@@ -16,6 +16,7 @@ module.exports.getAllBooks = (req, res, next) => {
     if (req.query.title) {
       request(`https://www.googleapis.com/books/v1/volumes?q=${req.query.title}&maxResults=5`, function (error, response, body) {
       let parsed = JSON.parse(body);
+      console.log(parsed)
       let books = parsed.items;
       res.render('all_books', {books});
     });
@@ -72,11 +73,18 @@ module.exports.getUserBooks = (req, res, next) => {
       let book;
       for (let i = 0; i < bookData.length; i++) {
         request(`https://www.googleapis.com/books/v1/volumes/${bookData[i].dataValues.api_id}`, function (error, response, body) {
-          // console.log(body);
           parsed = JSON.parse(body);
-          book = parsed.volumeInfo;
+            // u003cp: " ",
+            // u003c: " ",
+            // u003e: " ",
+            // u003ci: " "
+          let rep = /<p>|<b>|<\/b>|<\/p>|<i>|<\/i>|<br>|\/|/gi
+          let str = "";
+          parsed.volumeInfo.description = parsed.volumeInfo.description.replace(rep, str);
+          console.log(parsed);
+          book = parsed;
           // console.log("book body!!", book);
-          bookArr.push(parsed);
+          bookArr.push(book);
           // console.log("book array", bookArr);
           
           if (i === bookData.length -1 ) {
