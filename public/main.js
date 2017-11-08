@@ -38,7 +38,7 @@ $('.down_vote').click(function(){
 $('.submit-review').click(function(){
   console.log("Got clicked")
   let api_id = $(this).attr('id');
-  let review_text = $('#review-text').val();
+  let review_text = $(`#review-text${api_id}`).val();
   console.log(api_id);
   console.log(review_text);
   $.ajax({

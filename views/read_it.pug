@@ -51,12 +51,12 @@ html
         else        
 
         p Review:
-        textarea(id="review-text" name="review", cols="30", rows="10")
+        textarea(id=`review-text${book.id}` name="review", cols="30", rows="10")
         br
         br
-        button(class='remove-button' type='submit') Remove from Read it List
-        button(id=`${book.id}` class='submit-review' type='submit') Submit Review
-        button(class='show-reviews' type='submit') Show Reviews
+        button(class='remove-button') Remove from Read it List
+        button(id=`${book.id}` class='submit-review') Submit Review
+        button(class='show-reviews') Show Reviews
         each review in bookData
           if book.id == review.api_id
             p(id="hidden") Your Previous Reviews: #{review.User_Books.review}
