@@ -48,6 +48,10 @@ $('.submit-review').click(function(){
   })
 });
 
-$('.show-reviews').click(function(){
+$('.show-reviews').click(function(element){
   console.log("Got clicked")
+  $('#hidden').hide();
+  $('#hidden').toggleClass('show');
+  $('.show').show();
+  element.preventDefault();
 });

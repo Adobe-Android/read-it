@@ -4,6 +4,7 @@ html
   head
     title Read it!
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", type="text/css" href="/css/main.css")
   body
     if session.passport
       h1 Your Read it List
@@ -55,10 +56,10 @@ html
         br
         button(class='remove-button' type='submit') Remove from Read it List
         button(id=`${book.id}` class='submit-review' type='submit') Submit Review
-        button(id=`${book.id}` class='show-reviews' type='submit') Show Reviews
+        button(class='show-reviews' type='submit') Show Reviews
         each review in bookData
           if book.id == review.api_id
-            p Reviews: #{review.User_Books.review}
+            p(id="hidden") Your Previous Reviews: #{review.User_Books.review}
         br
         br
     script
