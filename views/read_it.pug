@@ -48,12 +48,13 @@ html
         if book.volumeInfo.pageCount
           p Length: #{book.volumeInfo.pageCount} pages
         else
-
+       
         p Review:
-        textarea(name="review", cols="30", rows="10")
+        textarea(id="review-text" name="review", cols="30", rows="10")
         br
         br
-        button(class='add-button' type='submit') Remove from Read it List
+        button(class='remove-button' type='submit') Remove from Read it List
+        button(id=`${book.id}` class='submit-review' type='submit') Submit Review
         br
         br
     script

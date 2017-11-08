@@ -24,6 +24,7 @@ $('.up_vote').click(function(){
     url: `/add-upvote-true/${api_id}`,
   })
 });
+
 $('.down_vote').click(function(){
   console.log("Got clicked")
   let api_id = $(this).attr('id');
@@ -31,6 +32,19 @@ $('.down_vote').click(function(){
   $.ajax({
     type: "PUT",
     url: `/add-upvote-false/${api_id}`,
+  })
+});
+
+$('.submit-review').click(function(){
+  console.log("Got clicked")
+  let api_id = $(this).attr('id');
+  let review_text = $('#review-text').val();
+  console.log(api_id);
+  console.log(review_text);
+  $.ajax({
+    type: "PUT",
+    data: {review_text},
+    url: `/add-review/${api_id}`,
   })
 });
 
