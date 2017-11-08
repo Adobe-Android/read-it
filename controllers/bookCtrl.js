@@ -52,6 +52,7 @@ module.exports.getUserBooks = (req, res, next) => {
       let apiData = [];
       let parsed;
       let book;
+      console.log("bookCtrl bookData", bookData);
       for (let i = 0; i < bookData.length; i++) {
         request(`https://www.googleapis.com/books/v1/volumes/${bookData[i].dataValues.api_id}`, function (error, response, body) {
           parsed = JSON.parse(body);
@@ -62,11 +63,13 @@ module.exports.getUserBooks = (req, res, next) => {
           book = parsed;
           // console.log("book body!!", book);
           bookArr.push(book);
-          // console.log("book array", bookArr);
+          console.log("book array", bookArr);
           
           if (i === bookData.length -1 ) {
             console.log("getting to if statement");
             res.locals.bookArr = bookArr;
+            res.locals.bookData = bookData;
+            // res.json(bookData);
             res.render('read_it')
           }
         })

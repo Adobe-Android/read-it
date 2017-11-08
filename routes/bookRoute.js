@@ -13,5 +13,4 @@ router.put('/add-upvote-true/:id', putUpvoteTrue);
 router.put('/add-upvote-false/:id', putUpvoteFalse);
 router.put('/add-review/:api_id', putReview);
 
-
 module.exports = router;
