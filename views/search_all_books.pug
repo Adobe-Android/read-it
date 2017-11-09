@@ -1,9 +1,16 @@
 include ./partials/nav
+html
+  head
+    title Read it!
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous")
+    link(rel="stylesheet", type="text/css" href="/css/main.css")
+  body
 block content
   if session.passport
-    h1 Search Books
-    input#search(placeholder="Search any book you like" type="text", name="search")
-    button#search-button(type="button") Search
+    h1(class="card-alignment") Search Books
+    div(class="container search-container")
+      input(class="col-9")#search(placeholder="Search any book you like" type="text", name="search")
+      button(class="col-3")#search-button(type="button") Search
       
   script
     include ../node_modules/jquery/dist/jquery.js

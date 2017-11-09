@@ -1,21 +1,21 @@
 if session.passport
-  span #{session.passport.user.username}
+  span(class="user") #{session.passport.user.username}
   form(method="POST")
-    button(type="submit" formaction="/logout") logout
+    button(class="log-out" type="submit" formaction="/logout") logout
 
-    ul
+    ul(class="nav justify-content-center")
       |
       |
       |
       |
-      a(href="/search-books") Search Books
+      a(class="nav-link" href="/search-books") Search Books
       |
       |
-      a(href='/read-it') Read it List
+      a(class="nav-link" href='/read-it') Read it List
       |
       |
-      a(href='/') Home
-      |
-      |
+      //- a(class="nav-link" href='/') Home
+      //- |
+      //- |
 
 

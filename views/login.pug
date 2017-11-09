@@ -8,8 +8,8 @@ block content
     br
     br
 
-  form(action="/login", method="post")
-    input(type="text" placeholder="username" name="username")
-    input(type="email" placeholder="email" name="email")
-    input(type="password" placeholder="password" name="password")
-    button(type="submit") login
+  form(class="login-form container" action="/login", method="post")
+    input(class="login-form-input col-3" type="text" placeholder="username" name="username")
+    input(class="login-form-input col-3" type="email" placeholder="email" name="email")
+    input(class="login-form-input col-3" type="password" placeholder="password" name="password")
+    button(class="login-form-input col-3" type="submit") login

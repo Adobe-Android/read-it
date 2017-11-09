@@ -1,9 +1,32 @@
 body {
-  background: slategray;
+
+/* background-image: linear-gradient(to right, #868f96 0%, #596164 100%); */
+
+background-image: linear-gradient(-225deg, #141616 0%, #3a3a3a 48%, #141616 100%);
 }
 
-p[id^=hidden] {
+p[class^=hide] {
   display: none;
+  padding-top: 1em; 
+}
+
+.nav-link {
+  color: white;
+}
+
+.card-alignment {
+  color: rgb(200, 200, 200);
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+}
+
+.header, .search-container {
+  padding-top: 1em;
+}
+
+.nav-link:hover {
+  color: rgb(140, 179, 217);
 }
 
 .fa {
@@ -15,6 +38,58 @@ p[id^=hidden] {
   border-radius: 50%;
 }
 
+.up_vote, .down_vote, .user, .login-header {
+  color: rgb(200, 200, 200);
+}
+
+.login-header {
+  padding-top: 0.5em;
+  text-align: center;
+}
+
+.user {
+  padding-left: 1.4em;
+}
+
+.up_vote, .down_vote {
+  padding-left: 5em;
+}
+
+.up_vote {
+  padding-top: 2em;
+}
+
+.down_vote {
+  padding-bottom: 2em;
+}
+
 .white-arrow {
-  color: #fff;
+  color: rgb(63, 142, 216);
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 2em;
+}
+
+.text-box {
+  color: white;
+  background-color: rgba(97, 97, 97, 0.3);
+}
+
+.show-reviews, .submit-review, .remove-button, .log-out, .login, .register, .login-form-input, .add-button {
+  color: rgb(200, 200, 200);
+  background-color: rgba(97, 97, 97, 0.3);
+}
+
+.login-container, .login-form {
+  padding-top: 1.2em;
+}
+
+.search-header, .readit-header {
+  padding-bottom: 1em;
+}
+
+.search-card {
+  margin-bottom: 2em;
 }
