@@ -77,7 +77,7 @@ p[class^=hide] {
   background-color: rgba(97, 97, 97, 0.3);
 }
 
-.show-reviews, .submit-review, .remove-button, .log-out, .login, .register, .login-form-input, .add-button {
+.show-reviews, .submit-review, .remove-button, .log-out, .login, .register, .login-form-input, .add-button, .sign-in-button {
   color: rgb(200, 200, 200);
   background-color: rgba(97, 97, 97, 0.3);
 }
