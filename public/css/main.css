@@ -1,3 +1,20 @@
-#hidden {
+body {
+  background: slategray;
+}
+
+p[id^=hidden] {
   display: none;
+}
+
+.fa {
+  padding: 15px;
+  font-size: 20px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.white-arrow {
+  color: #fff;
 }

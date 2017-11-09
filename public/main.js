@@ -19,6 +19,7 @@ $('.up_vote').click(function(){
   console.log("Got clicked")
   let api_id = $(this).attr('id');
   console.log(api_id);
+  $('.up_vote').toggleClass('white-arrow');
   $.ajax({
     type: "PUT",
     url: `/add-upvote-true/${api_id}`,
@@ -29,6 +30,7 @@ $('.down_vote').click(function(){
   console.log("Got clicked")
   let api_id = $(this).attr('id');
   console.log(api_id);
+  $('.down_vote').toggleClass('white-arrow');
   $.ajax({
     type: "PUT",
     url: `/add-upvote-false/${api_id}`,
@@ -50,8 +52,9 @@ $('.submit-review').click(function(){
 
 $('.show-reviews').click(function(element){
   console.log("Got clicked")
-  $('#hidden').hide();
-  $('#hidden').toggleClass('show');
+  let api_id = $(this).attr('id');
+  $(`.hide`).hide();
+  $(`.hide`).toggleClass('show');
   $('.show').show();
   element.preventDefault();
 });

@@ -6,13 +6,6 @@ if session.passport
     ul
       |
       |
-      //- select(class="selectType" name="selectType" onchange="location = this.value;") 
-      //-   option Select a product category!
-      //-   option(value='/productTypes') Product Categories
-      //-   if locals.prodTypes
-      //-     each prodType in locals.prodTypes
-      //-       -let url = `/getProductsByTypes/` + prodType.name;
-            //- option(value=url) #{prodType.name}
       |
       |
       a(href="/search-books") Search Books
@@ -21,7 +14,7 @@ if session.passport
       a(href='/read-it') Read it List
       |
       |
-      a(href='/your-reviews') Your Reviews
+      a(href='/') Home
       |
       |
 
