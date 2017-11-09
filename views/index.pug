@@ -2,14 +2,17 @@ doctype html
 html
   head
     title Read it!
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous")
+    link(rel="stylesheet", type="text/css" href="/css/main.css")
   body
     include partials/nav.pug
-    h1 Read it!
+    h1(class="login-header") Read it!
     //- h2 #{globalWow}
 
   block content
-    button#showLogin login
-    button#showRegister register
+    div(class="container login-container")
+      button(class="login col")#showLogin login
+      button(class="register col")#showRegister register
 
     script
       include ../node_modules/jquery/dist/jquery.js

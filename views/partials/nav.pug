@@ -1,28 +1,21 @@
 if session.passport
-  span #{session.passport.user.username}
+  span(class="user") #{session.passport.user.username}
   form(method="POST")
-    button(type="submit" formaction="/logout") logout
+    button(class="log-out" type="submit" formaction="/logout") logout
 
-    ul
+    ul(class="nav justify-content-center")
       |
       |
-      //- select(class="selectType" name="selectType" onchange="location = this.value;") 
-      //-   option Select a product category!
-      //-   option(value='/productTypes') Product Categories
-      //-   if locals.prodTypes
-      //-     each prodType in locals.prodTypes
-      //-       -let url = `/getProductsByTypes/` + prodType.name;
-            //- option(value=url) #{prodType.name}
       |
       |
-      a(href="/search-books") Search Books
+      a(class="nav-link" href="/search-books") Search Books
       |
       |
-      a(href='/read-it') Read it List
+      a(class="nav-link" href='/read-it') Read it List
       |
       |
-      a(href='/your-reviews') Your Reviews
-      |
-      |
+      //- a(class="nav-link" href='/') Home
+      //- |
+      //- |
 
 

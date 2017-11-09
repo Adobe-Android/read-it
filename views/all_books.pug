@@ -1,49 +1,56 @@
 include ./partials/nav
+html
+  head
+    title Read it!
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous")
+    link(rel="stylesheet", type="text/css" href="/css/main.css")
+  body
 block content
   if session.passport
-    h1 Books from your search
-    //- -console.log(books[0]);
-    each book in books
-      //- error handling for when a component isn't available
-      p Title: #{book.volumeInfo.title}
-      if book.volumeInfo.subtitle
-        p Subtitle: #{book.volumeInfo.subtitle}
-      else
+      h1(class="card-alignment search-header") Books from your search
+      //- -console.log(books[0]);
+      each book in books
+        div(class="card")
+          //- error handling for when a component isn't available
+          h3(class="card-alignment header") #{book.volumeInfo.title}
+          if book.volumeInfo.subtitle
+            p(class="card-alignment") Subtitle: #{book.volumeInfo.subtitle}
+          else
 
-      if book.volumeInfo.authors
-        p Author: #{book.volumeInfo.authors}
-      else
+          if book.volumeInfo.authors
+            p(class="card-alignment") Author: #{book.volumeInfo.authors}
+          else
 
-      if book.volumeInfo.publisher
-        p Publisher: #{book.volumeInfo.publisher}
-      else
+          if book.volumeInfo.publisher
+            p(class="card-alignment") Publisher: #{book.volumeInfo.publisher}
+          else
 
-      if book.volumeInfo.publishedDate
-        p Published Date: #{book.volumeInfo.publishedDate}
-      else
+          if book.volumeInfo.publishedDate
+            p(class="card-alignment") Published Date: #{book.volumeInfo.publishedDate}
+          else
 
-      if book.volumeInfo.categories
-        p Genre: #{book.volumeInfo.categories}
-      else
+          if book.volumeInfo.categories
+            p(class="card-alignment") Genre: #{book.volumeInfo.categories}
+          else
 
-      if book.volumeInfo.maturityRating
-        if book.volumeInfo.maturityRating === "NOT_MATURE"
-          p Maturity Rating: Suitable for all ages
-        else
+          if book.volumeInfo.maturityRating
+            if book.volumeInfo.maturityRating === "NOT_MATURE"
+              p(class="card-alignment") Maturity Rating: Suitable for all ages
+            else
 
-      else
+          else
 
-      if book.volumeInfo.description
-        p Summary: #{book.volumeInfo.description}
-      else
+          if book.volumeInfo.description
+            p(class="card-alignment") Summary: #{book.volumeInfo.description}
+          else
 
-      if book.volumeInfo.pageCount
-        p Length: #{book.volumeInfo.pageCount} pages
-      else
+          if book.volumeInfo.pageCount
+            p(class="card-alignment") Length: #{book.volumeInfo.pageCount} pages
+          else
 
-      button(id=`${book.id}` class='add-button' type='submit') Add to Read it List
-      br
-      br
+          button(id=`${book.id}` class='add-button card-alignment' type='submit') Add to Read it List
+          br
+          br
   script
     include ../node_modules/jquery/dist/jquery.js
     include ../public/main.js
