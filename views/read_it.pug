@@ -58,7 +58,7 @@ html
           textarea(id=`review-text${book.id}` class="text-box" name="review", cols="30", rows="10")
           br
           br
-          button(class='remove-button') Remove from Read it List
+          button(id=`${book.id}` class='remove-button') Remove from Read it List
           button(id=`${book.id}` class='submit-review') Submit Review
           button(class='show-reviews') Show Review
           each review in bookData
