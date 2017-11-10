@@ -136,3 +136,16 @@ module.exports.putReview = (req, res, next) => {
         next(err);
       });
 };
+
+module.exports.removeBook = (req, res, next) => {
+  const { Book } = req.app.get('models');
+  console.log("reaching putReview func!");
+  // console.log(req.params.id)
+  Book.destroy({ where: { api_id: req.params.api_id } })
+    .then((book) => {
+      console.log("The book is dead...")
+      })
+      .catch((err) => {
+        next(err);
+      });
+};
