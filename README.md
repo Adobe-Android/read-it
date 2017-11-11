@@ -4,7 +4,9 @@ A book review app re-imagined in the style of Reddit.
 - Have you ever had a friend recommend a book and then you forgot about it entirely?
 - Have you ever just wanted to keep track of all the different books you are currently reading?
 
-> The book review process can also be complicated and hard to parse through.
+## Our mission
+
+The book review process can also be complicated and hard to parse through.
 That's why we streamlined it with some ideas from our friends at Reddit!
 You either recommend the book or you don't with a simple upvote or downvote.
 From there, you can also leave an official review.
