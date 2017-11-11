@@ -48,7 +48,8 @@ npm start
 * [Node.js](https://nodejs.org/en/)
 * [Express](https://expressjs.com/) 
 * [Sequelize](http://docs.sequelizejs.com/) 
-* [PostgreSQL](https://www.postgresql.org/) 
+* [PostgreSQL](https://www.postgresql.org/)
+* [Google Books API](https://developers.google.com/books/docs/v1/getting_started)
 
 ## Author
 
