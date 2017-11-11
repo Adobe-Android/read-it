@@ -55,3 +55,6 @@ npm start
 
 * **David Brown** - [Adobe-Android](https://github.com/Adobe-Android)
 
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
