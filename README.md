@@ -53,7 +53,7 @@ npm start
 
 ## Author
 
-* **David Brown** - [Adobe-Android](https://github.com/Adobe-Android)
+**David Brown** - [Adobe-Android](https://github.com/Adobe-Android)
 
 ## License
 
