@@ -5,16 +5,16 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "myijqqicflcyst",
-    "password": "readit4postgres",
-    "database": "d36j1lekuurn3a",
+    "username": "",
+    "password": "",
+    "database": "",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "myijqqicflcyst",
-    "password": "readit4postgres",
-    "database": "d36j1lekuurn3a",
+    "username": "",
+    "password": "",
+    "database": "",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
