@@ -51,10 +51,6 @@ Start the server:
 npm start
 ```
 
-Config.json
-
-You will also need a config.json file. You can contact me for details.
-
 ## Use
 1. Start by registering a new user
 2. Next, you can search for just about any book
