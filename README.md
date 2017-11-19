@@ -20,6 +20,7 @@ In the future..we plan to add a few extra features.
 4. Add some extra polish by making deleted and added content automatically appear.
 5. Add error handling for an empty read it list.
 6. Add an effect on click to the 'add to read it list' button so the user is aware that it has been successfully added.
+
 Check out the Projects section for the latest updates.
 
 ## Installation
