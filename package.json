@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +29,11 @@
     "pug": "^2.0.4",
     "request": "^2.88.0",
     "sequelize": "^4.38.0",
-    "sequelize-cli": "^5.5.0"
+    "sequelize-cli": "^5.5.0",
+    "@snyk/protect": "latest"
   },
   "engines": {
     "node": "8.16.0"
-  }
+  },
+  "snyk": true
 }
