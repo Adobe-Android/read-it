@@ -27,7 +27,7 @@
     "pug": "^2.0.4",
     "request": "^2.88.0",
     "sequelize": "^4.38.0",
-    "sequelize-cli": "^5.5.0"
+    "sequelize-cli": "^6.3.0"
   },
   "engines": {
     "node": "8.16.0"
